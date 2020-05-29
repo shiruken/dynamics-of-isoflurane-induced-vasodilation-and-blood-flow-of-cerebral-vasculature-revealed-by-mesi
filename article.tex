@@ -1,251 +1,242 @@
-\documentclass[12pt]{spieman}  % 12pt font required by SPIE;
-%\documentclass[a4paper,12pt]{spieman}  % use this instead for A4 paper
+\documentclass[12pt]{spieman}
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{tocloft}
 
-\title{SPIE journal papers: sample manuscript showing style and formatting specifications}
+% Fix for Unicode characters in bibliography
+\usepackage{newunicodechar}
+\newunicodechar{κ}{$\kappa$}
+\newunicodechar{β}{$\beta$}
 
-\author[a]{First Author}
-\author[a]{Second Author}
-\author[b]{Third Author}
-\author[a,b,*]{Fourth Author}
-\affil[a]{University Name, Faculty Group, Department, Street Address, City, Country, Postal Code}
-\affil[b]{Company Name, Street Address, City, Country, Postal Code}
 
+% ---------------------------------------------------------------------------------------
+% BEGIN TITLE AND AUTHORS
+% ---------------------------------------------------------------------------------------
+\title{Visualizing anesthesia-induced vasodilation of cerebral vasculature using multi-exposure speckle imaging}
+
+\author[a]{Colin T. Sullender}
+\author[b]{Fei He}
+\author[b,c]{Chong Xie}
+\author[b,c]{Lan Luan}
+\author[a,*]{Andrew K. Dunn}
+\affil[a]{Department of Biomedical Engineering, University of Texas at Austin, 107 W. Dean Keeton Street Stop C0800, Austin, Texas, 78712, United States}
+\affil[b]{Department of Electrical and Computer Engineering, Rice University, 6100 Main Street, Houston, TX, 77005, United States}
+\affil[c]{Department of Bioengineering, Rice University, 6100 Main Street, Houston, TX, 77005, United States}
+
+
+% ----------------------------------------------------------------------------------------
+% BEGIN DOCUMENT
+% ----------------------------------------------------------------------------------------
 \renewcommand{\cftdotsep}{\cftnodots}
 \cftpagenumbersoff{figure}
 \cftpagenumbersoff{table} 
 \begin{document} 
 \maketitle
 
+
+% ----------------------------------------------------------------------------------------
+% BEGIN ABSTRACT
+% ----------------------------------------------------------------------------------------
 \begin{abstract}
-This document shows the required format and appearance of a manuscript prepared for SPIE journals. It is prepared using LaTeX2e with the class file \texttt{spieman.cls}. Please note that the following journals encourage the use of \textbf{structured abstracts} in manuscript submissions: \textit{Neurophotonics}, the \textit{Journal of Biomedical Optics}, and the\textit{ Journal of Micro/Nanolithography, MEMS, and MOEMS}. Guidelines for structured abstracts are available on the journal website. Whether structured or single-paragraph, the abstract should contain approximately 200 words. It should be a summary of the paper and not an introduction. Because the abstract may be used in abstracting and indexing databases, it should be self-contained (i.e., no numerical references) and substantive in nature, presenting concisely the objectives, methodology used, results obtained, and their significance. A list of up to eight keywords should immediately follow, with the keywords separated by commas and ending with a period. The body of the manuscript should be double-spaced and fully justified.  
+Anesthetized animal models are used extensively during neurophysiological and behavioral studies despite systemic effects from anesthesia that undermine both accurate interpretation and translation to awake human physiology. In this paper, we characterize the impact of isoflurane during the induction of general anesthesia in awake mice using multi-exposure speckle imaging (MESI) of cerebral blood flow (CBF). We highlight the large anatomical changes caused by the vasodilatory inhalant with wide-field imagery and quantify the cortical hemodynamics with MESI across multiple subjects and imaging sessions. Compared to the awake state, we measured, on average, an 18\% increase in surface vessel diameter accompanied by a 135\% increase in vascular flux and 92\% increase in parenchymal perfusion. These large alterations to the cortical vasculature and CBF are unrepresentative of normal physiology and provide further evidence that neuroscience experiments would benefit from transitioning to un-anesthetized awake animal models.
 \end{abstract}
 
 % Include a list of up to six keywords after the abstract
-\keywords{optics, photonics, light, lasers, journal manuscripts, LaTeX template}
+\keywords{multi-exposure speckle imaging, laser speckle contrast imaging, awake imaging, anesthesia}
 
 % Include email contact information for corresponding author
-{\noindent \footnotesize\textbf{*}Fourth author name,  \linkable{myemail@university.edu} }
+{\noindent \footnotesize\textbf{*}Andrew K. Dunn,  \linkable{adunn@utexas.edu} }
 
 \begin{spacing}{2}   % use double spacing for rest of manuscript
 
+
+% ----------------------------------------------------------------------------------------
+% BEGIN INTRODUCTION SECTION
+% ----------------------------------------------------------------------------------------
 \section{Introduction}
-\label{sect:intro}  % \label{} allows reference to this section
-This document shows the format and appearance of a manuscript prepared for submission to an SPIE journal. Note that this template is only intended to be used as a guideline for author convenience. It is designed for optimum clarity and ease of reading for editors and reviewers, but the template does not reflect the final page layout of a published journal paper. Accepted papers are professionally typeset in XML according to the layout and design of the journal. 
+\label{sect:introduction}
 
-\subsection{Use of This Document}
+The use of general anesthesia during neuroimaging is ubiquitous across many animal models despite systemic effects on neurophysiological state and cardiovascular function \cite{Slupe:2018ea}. Volatile inhalation anesthetics, such as the halogenated ether isoflurane \cite{Eger:1981ia}, are commonly utilized to immobilize animals during imaging while allowing for fine control over the depth of anesthesia and consciousness. However, isoflurane has been shown to reduce neuronal activity \cite{Aksenov:2015ea} and functional connectivity \cite{Xie:2019de}, suppress the magnitude and speed of neurovascular coupling \cite{Masamoto:2012bj,Takuwa:2012ee,Pisauro:2013cx}, and induce significant vasodilation \cite{Koenig:1994rn,Strebel:1995uh,Iida:1998th}. Isoflurane also conveys potential neuroprotective effects that reduce and delay the severity of cerebral ischemia \cite{Kitano:2007ia,Kawaguchi:2000id,Sakai:2007wc,Li:2013ip,Lu:2017bo}. These effects can mask the benefits of prospective neuroprotective therapeutics or interventions and confound the outcomes of long-term studies \cite{Kapinya:2002ua,Seto:2014ga}. For these reasons and more \cite{Gao:2017tw}, there is a growing effort within the neuroscience community to transition to un-anesthetized awake animal models in order to more accurately interpret neurophysiological and behavioral experiments and more readily translate findings to awake human physiology.
 
-This document is prepared using LaTeX2e\cite{Lamport94,Goossens97} with the class file {\ttfamily spieman.cls}.  The LaTeX source file used to create this document is {\ttfamily article.tex}, which contains important formatting information embedded in it. Authors may use it as a template to create their own manuscript. While LaTeX properly handles most formatting issues, the author may occasionally need to intervene to obtain a satisfactorily  formatted manuscript.
+There have been numerous imaging modalities used to examine the effects of isoflurane on cerebral hemodynamics. Functional magnetic resonance imaging (fMRI), laser-Doppler flowmetry (LDF), and intrinsic signal optical imaging (ISOI) have all established that isoflurane increases basal cerebral blood flow (CBF) while attenuating and delaying the hemodynamic response via neurovascular coupling \cite{Sicard:2003dj,Desai:2011mb,Aksenov:2015ea,Takuwa:2012ee,Pisauro:2013cx}. Two-photon phosphorescence lifetime microscopy (2PLM) showed that tissue oxygenation is twice as high under isoflurane anesthesia compared to the awake state and exhibited large layer-specific differences within the cortical vasculature \cite{Lyons:2016bd}. Calcium signal imaging following ischemic stroke found that the magnitude of spreading depolarizations were significantly smaller in awake mice \cite{Balbi:2017cj} while laser speckle contrast imaging (LSCI) during photothrombotic stroke induction observed larger infarct sizes in awake rats compared to their isoflurane-anesthetized counterparts \cite{Lu:2017bo}. To date, no study has directly monitored the induction of general anesthesia and its acute effects upon the cerebral vasculature.
 
-\subsection{English}
-
-Authors are strongly encouraged to follow the principles of sound technical writing, as found in Refs.~\citenum{Alred03} and \citenum{Perelman97}, for example. In addition, good English usage is essential. Authors whose native language is not English may wish to collaborate with a colleague whose English skills are more advanced. Alternatively, you may wish to have your manuscript professionally edited prior to submission by Editage, our recommended independent editorial service: \linkable{https://www.editage.com/spie/}. SPIE authors will receive a 15\% discount off their services. A spell checker can be helpful to discover misspelled words, but authors should also proofread their papers carefully prior to submission. Manuscripts that do not meet acceptable English standards or lack clarity may be rejected.
-
-\subsection{Page Setup and Fonts}
-
-All text and figures, including footnotes, must fit inside a text area 6.5 in.\ wide by 9 in.\ high (16.51 by 22.86 cm). Manuscripts must be formatted for US letter paper, on which the margins should be 1 in.\ (2.54 cm) on the top, 1 in.\ on the bottom, and 1 in.\ on the left and right. 
-
-The Times New Roman font is used throughout the manuscript, in the sizes and styles shown in Table~\ref{tab:fonts}. If this font is not available, use a similar serif font. The manuscript should not contain headers or footers. Pages should be numbered.
-
-\begin{table}[ht]
-\caption{Fonts sizes and styles.} 
-\label{tab:fonts}
-\begin{center}       
-\begin{tabular}{|l|l|} %% this creates two columns
-%% |l|l| to left justify each column entry
-%% |c|c| to center each column entry
-%% use of \rule[]{}{} below opens up each row
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Document entity & Brief description  \\
-\hline\hline
-\rule[-1ex]{0pt}{3.5ex}  Article title & 16 pt., bold, left justified  \\
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Author names & 12 pt., bold, left justified   \\
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Author affiliations & 10 pt., left justified   \\
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Abstract & 10 pt.  \\
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Keywords & 10 pt.  \\
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Section heading & 12 pt., bold, left justified  \\
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Subsection heading & 12 pt., italic, left justified  \\
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Sub-subsection heading & 11 pt., italic, left justified  \\
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Normal text & 12 pt. \\
-\hline
-\rule[-1ex]{0pt}{3.5ex}  Figure and table captions &  10 pt. \\
-\hline 
-\end{tabular}
-\end{center}
-\end{table} 
-
-\section{Parts of Manuscript}
-
-This section describes the normal structure of a manuscript and how each part should be handled. The appropriate vertical spacing between various parts of this document is achieved in LaTeX through the proper use of defined constructs, such as \verb|\section{}|. 
-
-\subsection{Title and Author Information}
-\label{sect:title}
-The article title appears left justified at the top of the first page. The title font is 16 pt., bold. The rules for capitalizing the title are the same as for sentences; only the first word, proper nouns, and acronyms should be capitalized. Do not begin titles with articles (for example, a, an, the) or prepositions (for example, on, by, etc.). The word ``novel'' should not appear in the title, as publication will imply novelty. Avoid the use of acronyms in the title, unless they are widely understood. Appendix A contains more about acronyms.
-
-The list of authors immediately follows the title, 18 points below. The font is 12 pt., bold and the author names are left justified. The author affiliations and addresses follow the names, in 10-pt., normal font and left justified. For multiple affiliations, each affiliation should appear on a separate line. Superscript letters (a, b, c, etc.) should be used to associate multiple authors with their respective affiliations. The corresponding author should be identified with an asterisk, and that person's email address should be provided below the keywords.
-
-\subsection{Abstract}
-The abstract should be a summary of the paper and not an introduction. Because the abstract may be used in abstracting journals, it should be self-contained (that is, no numerical references) and substantive in nature, presenting concisely the objectives, methodology used, results obtained, and their significance. Please note that the following journals encourage the use of \textbf{structured abstracts} in manuscript submissions: \textit{Neurophotonics}, the \textit{Journal of Biomedical Optics}, and the \textit{Journal of Micro/Nanolithography, MEMS, and MOEMS}. Helpful guidelines for structured abstracts are available on the journal website. Whether structured or single-paragraph, the abstract should contain approximately 200 words.
-
-\subsection{Keywords}
-Up to eight keywords should be specified. 
-
-\subsection{Body of Paper}
-The body of the paper consists of numbered sections that present the main findings. These sections should be organized to best present the material.
-
-To provide transition elements in your paper, it is important to refer back (or forward) to specific sections. Such references are made by indicating the section number, for example, ``In Sec.\ 2 we showed...'' or ``Section 2.1 contained a description...'' If the word Section, Reference, Equation, or Figure starts a sentence, it is spelled out. When occurring in the middle of a sentence, these words are abbreviated Sec., Ref., Eq., and Fig. 
-
-At the first occurrence of an acronym, spell it out followed by the acronym in parentheses, for example, charge-coupled diode (CCD).
-
-\subsection{Footnotes}
-Textual footnotes should be used rarely to present important documentary or explanatory material whose inclusion in the text would be distracting.\footnote{Example of a footnote.} Due to problems with HTML display, use of footnotes should generally be avoided. If absolutely necessary, the footnote mark must come at the end of a sentence. To insert a footnote, use the {\verb|\footnote{}|} command.
-
-\subsection{Appendices}
-Brief appendices may be included when necessary, such as derivations of equations, proofs of theorems, and details of algorithms. Equations and figures appearing in appendices should continue sequential numbering from earlier in the paper.
-
-\subsection{Disclosures}
-Conflicts of interest should be declared under a separate header, above Acknowledgments. If the authors have no competing interests to declare, then a statement should be included declaring no conflicts of interest. For assistance generating a disclosure statement, see the form available from  the International Committee of Medical Journal Editors website: \linkable{http://www.icmje.org/conflicts-of-interest/} 
-
-\subsection{Acknowledgments}
-Acknowledgments and funding information should be added after the conclusion, and before references. Include grant numbers and the full name of the funding body. The acknowledgments section does not have a section number.
-
-\subsection{References}
-The References section lists books, articles, and reports that are cited in the paper. This section does not have a section number. The references are numbered in the order in which they are cited. Examples of the format to be followed are given at the end of this document.
-
-The reference list at the end of this document is created using BibTeX, which looks through the file {\ttfamily report.bib} for the entries cited in the LaTeX source file.  The format of the reference list is determined by the bibliography style file {\ttfamily spiejour.bst}, as specified in the \\ \verb|\bibliographystyle{spiejour}| command.  Alternatively, the references may be directly formatted in the LaTeX source file.
-
-For books\cite{Lamport94,Alred03,Goossens97} the listing includes the list of authors (initials plus last name), book title (in italics), page or chapter numbers, publisher, city, and year of publication.  Journal-article references \cite{Metropolis53,Harris06} include the author list, title of the article (in quotes), journal name (in italics, properly abbreviated), volume number (in bold), inclusive page numbers or citation identifier, and year.  A reference to a proceedings paper or a chapter in an edited book\cite{Gull89a} includes the author list, title of the article (in quotes), conference name (in italics), editors (if appropriate), volume title (in italics), volume number if applicable (in bold), inclusive page numbers, publisher, city, and year.  References to an article in the SPIE Proceedings may include the conference name, as shown in Ref.~\citenum{Hanson93c}.
-
-The references are numbered in the order of their first citation. Citations to the references are made using superscripts, as demonstrated in the preceding paragraph. One may also directly refer to a reference within the text, for example, ``as shown in Ref.~\citenum{Metropolis53} ...''  Two or more references should be separated by a comma with no space between them. Multiple sequential references should be displayed with a dash between the first and last numbers \cite{Alred03,Perelman97,Lamport94,Goossens97,Metropolis53}. 
-
-\subsubsection{Reference linking and DOIs}
-A Digital Object Identifier (DOI) is a unique alphanumeric string assigned to a digital object, such as a journal article or a book chapter, that provides a persistent link to its location on the internet. The use of DOIs allows readers to easily access cited articles. Authors should include the DOI at the end of each reference in brackets if a DOI is available. See examples at the end of this manuscript. A free DOI lookup service is available from CrossRef at \\\linkable{http://www.crossref.org/freeTextQuery/}. The inclusion of DOIs will facilitate reference linking and is highly recommended. 
-
-In the present LaTeX template, the author needs to add the DOI reference by including it in a ``note'' in the bibliography file, as shown in the file {\verb+report.bib+}, for example, \\ {\verb+note = "[doi:10.1117/12.154577]"+}. The DOI may be used by the reader to locate that document with the link: {\verb+http://dx.doi.org10.1117/12.154577+}. 
-
-\subsection{Biographies}
-A brief professional biography not to exceed 75 words may be provided for each author, if available. Biographies should be placed at the end of the paper, after the references. Personal information such as hobbies or birthplace/birthdate should not be included. Author photographs are not published.
-
-\section{Section Formatting}
-\label{sect:sections}
-In LaTeX, a new section is created with the \verb|\section{}| command, which automatically numbers the sections. Sections will be numbered sequentially, starting with the first section after the abstract, except for the acknowledgments and references. (Note that numbering of section headings is not required, but the numbering must be consistent if used.) All section headings should be left justified.
-
-Main section headings are in 12-pt. bold font, left-justified and in title case, where important words are capitalized.
-
-Paragraphs that immediately follow a section heading are leading paragraphs and should not be indented, according to standard publishing style. The same goes for leading paragraphs of subsections and sub-subsections. Subsequent paragraphs are standard paragraphs, with 0.2-in (5 mm) indentation. There is no additional space between paragraphs. In LaTeX, paragraphs are separated by blank lines in the source file. Indentation of the first line of a paragraph may be avoided by starting it with \verb|\noindent|.
-
-\subsection{Subsection Headings}
-All important words in a subsection (level 1) header are capitalized. Subsection numbers consist of the section number, followed by a period, and the subsection number within that section, without a period at the end. The heading is left justified and its font is 12 pt. italic.
-
-\subsubsection{Sub-subsection headings}
-The first word of a sub-subsection is capitalized. The rest of the text is not capitalized, except for proper names and acronyms (the latter should only be used if well known). The heading is left justified and its font is 11 pt. italic. 
-
-\section{Figures and Tables}
-
-\subsection{Figures}
-
-Figures are numbered in the order in which they are called out in the text. They should appear in the document in numerical order and as close as possible to their first reference in the text. It may be necessary to move figures or tables around to enhance readability. LaTeX will attempt to place figures at the top or bottom of a page in which they are first referenced.
-
-Figures, along with their captions, should be separated from the main text by  0.2 in.\ or 5 mm and centered. Figure captions are centered below the figure or graph. Figure captions start with the abbreviation ``Fig'' in front of the figure number, followed by a period, and the text in 10-pt. font. See Fig.~\ref{fig:example} for an example.
-
-\begin{figure}
-\begin{center}
-\begin{tabular}{c}
-\includegraphics[height=5.5cm]{mcr3b.eps}
-\end{tabular}
-\end{center}
-\caption 
-{ \label{fig:example}
-Example of a figure caption. } 
-\end{figure} 
-
-Authors may wish to create figures consisting of two or more images, in which case, they should be neatly arranged in a rectangular array.  In no case, should the article's text be wrapped around a figure. Figure~\ref{fig:example2} shows two side-by-side images. When a figure contains more than one image, the author must submit them as a single image file. Further details about figure formatting can be found in the author guidelines for each specific SPIE journal: \\
-\linkable {https://www.spiedigitallibrary.org/journals/journal-authors}. 
-
-\begin{figure}
-\begin{center}
-\begin{tabular}{c}
-\includegraphics[height=5.5cm]{fig2.eps}  % fig2 includes two images 
-\\
-(a) \hspace{5.1cm} (b)
-\end{tabular}
-\end{center}
-\caption 
-{ \label{fig:example2}
-Example of a figure containing multiple images: (a) sun and (b) blob. Figures containing multiple images must be submitted to SPIE as a single image file.} 
-\end{figure} 
-
-\subsection{Tables}
-Tables are numbered in the order in which they are referenced. They should appear in the document in numerical order and as close as possible to their first reference in the text. It is preferable to have tables appear at the top or bottom of the page, if possible. Table captions are handled identically to those for figures, except that they appear above the table. See Table~\ref{tab:fonts} for an example.
-
-\subsection{Multimedia}
-Please refer to the multimedia section of the author guidelines (see link above) for specific requirements. The following types of multimedia files are accepted: QuickTime Non-Streaming video (.qt or .mov), MPEG (.mpg or .mp4). The recommended maximum size for each multimedia file is 10-12 MB. Authors must insert a representative still image from the video file in the manuscript as a figure. The caption label will be linked by the publisher to the actual video file. The video may also be mentioned in an existing figure caption. Multimedia files are treated in the same manner as figures and they will be numbered sequentially with normal figures.  The video number, file type, and file size should be included in parentheses at the end of the figure caption. See Figure \ref{vid:satellite} for an example.
-
-\begin{video}
-\begin{center}
-{\includegraphics[height=5cm]{satellite.eps}}
-\\
-\end{center}
-\caption{\label{vid:satellite}This satellite is a still image from Video 1 (Video 1, MPEG, 2.5 MB).}
-\end{video}
-
-\appendix    % this command starts appendixes
-
-\section{Miscellaneous Formatting Details}
-\label{sect:misc}
-At times it may be desired, for formatting reasons, to break a line without starting a new paragraph. In a LaTeX source file, a linebreak is created with \verb|\\|.
+In this paper, we present multi-exposure speckle imaging (MESI) of cerebral blood flow in awake mice during the induction of general anesthesia with isoflurane. The MESI technique \cite{Parthasarathy:2008el} provides a more robust estimate of large changes in flow compared to traditional single-exposure LSCI \cite{Parthasarathy:2010vo} and enables the chronic tracking of CBF \cite{Kazmi:2013hp}. We highlight the large anatomical and physiological changes to cortical hemodynamics in response to isoflurane with wide-field imagery across multiple imaging sessions and animals. Because the anesthetized state is representative of an abnormal physiology, we argue that awake animal models should be utilized whenever possible.
 
 
-\subsection{Formatting Equations}
-Equations may appear inline with the text, if they are simple, short, and not of major importance; for example, $\beta = b/r$.  Important equations appear on their own line.  Such equations are centered.  For example, ``The expression for the field of view is
+% ----------------------------------------------------------------------------------------
+% BEGIN METHODS SECTION
+% ----------------------------------------------------------------------------------------
+\section{Methods}
+\label{sect:methods}
+
+\subsection{Multi-Exposure Speckle Imaging (MESI)}
+A schematic of the imaging system is presented in Fig.~\ref{fig:system_image}a. MESI was performed using a 685 nm laser diode (50 mW, HL6750MG, Thorlabs) intensity modulated with an acousto-optic modulator (AOM, 3100-125, Gooch \& Housego) and relayed to illuminate the craniotomy at an oblique angle. The scattered light was imaged by a CMOS camera (acA1920-155um, Basler AG) synchronized with the laser pulses with 2x magnification and cropped to a field-of-view of 3.6 x 3.0 mm. Fifteen camera exposures ranging between 50 $\mu$s and 80 ms \cite{Parthasarathy:2008el,Atchia:2013ep,Kazmi:2013hp} were recorded for each MESI frame in order to broadly sample the speckle dynamics of the specimen \cite{Kazmi:2014go}, resulting in an effective acquisition rate of ~2.5 MESI frames-per-second. The total amount of light used to capture each exposure was held constant with the AOM in order to minimize the effects of shot noise \cite{Parthasarathy:2008el}. The acquisition was controlled using custom software written in C++ along with a multifunction I/O device (USB-6363, National Instruments Corp.) for the generation of camera exposure trigger signals and AOM modulation voltages.
+
+The 15 raw intensity images were converted to spatial speckle contrast images ($K = \sigma_{s} / {\langle{I}\rangle}$) with a 7x7-pixel window and used to calculate an estimate of the speckle correlation time ($\tau_c$) at each pixel with the multi-exposure speckle visibility expression \cite{Parthasarathy:2008el}:
+%
+% Equation 1 - MESI Equation
 \begin{equation}
-\label{eq:fov}
-2 a = \frac{(b + 1)}{3c} \, ,
+    \label{eq:mesi}
+    K(T,\tau_c) =
+        \left(
+        \beta\rho^2\frac{e^{-2x} - 1 + 2x}{2x^2} +
+        4\beta\rho(1 - \rho)\frac{e^{-x} - 1 + x}{x^2} +
+        \beta(1 - \rho)^2 +
+        \nu_{ne} +
+        \nu_{noise}
+        \right)^{1/2}
 \end{equation}
-where $a$ is the ...''  Principal equations are numbered, with the equation number placed within parentheses and right justified.  
 
-Equations are considered to be part of a sentence and should be punctuated accordingly. In the above example, a comma appears after the equation because the next line is a subordinate clause. If the equation ends the sentence, a period should follow the equation. The line following an equation should not be indented unless it is meant to start a new paragraph. Indentation after an equation is avoided in LaTeX by not leaving a blank line between the equation and the subsequent text.
+\noindent where $T$ is the camera exposure time, $x = T/\tau_c$, $\rho$ is the fraction of light that is dynamically scattered, $\beta$ is a normalization factor that accounts for speckle sampling, and $\nu_{noise}$ represents exposure-independent instrument noise and nonergodic variances. Eq.~(\ref{eq:mesi}) was fitted with the Levenberg-Marquardt nonlinear least squares algorithm \cite{Lourakis:2005} using a custom program written in C.
 
-References to equations include the equation number in parentheses, for example, ``Equation~(\ref{eq:fov}) shows ...'' or ``Combining Eqs.~(2) and (3), we obtain...'' Note that the word ``Equation'' is spelled out if it begins a sentence, but is abbreviated as ``Eq.'' otherwise. Using a tilde in the LaTeX source file between two characters avoids unwanted line breaks, for example between ``Eq.'' and the following equation number..
+Because $\tau_c$ is inversely related to the speed of the moving scatterers \cite{Bonner:1981hg,Briers:1996kfa}, the inverse correlation time ($ICT = 1/\tau_c$) is frequently used as a metric for quantifying blood flow in vasculature and perfusion in parenchyma \cite{Ayata:2004ba,Strong:2005kj,Sullender:2018ff}. Recent work to improve the quantitative accuracy of MESI flow measurements in vasculature takes into account the presence of multiple dynamic scattering events instead of assuming only a single dynamic scattering event \cite{Kazmi:2015du}. This is achieved by scaling the fitted $ICT$ value by the caliber of the vessel ($d_{vessel}$) in order to obtain an estimate of "vascular flux” that accounts for variations in vascular volume sampling \cite{Kazmi:2015du,Richards:2017df}. This paper utilizes the “flux” metric (arbitrary units) for all vascular measurements and $ICT$ (s$^{-1}$) for all parenchymal perfusion measurements.
 
-\subsection{Formatting Theorems}
+% ----------------------------------------------------------------------------------------
 
-To include theorems in a formal way, the theorem identification should appear in a 10-point, bold font, left justified, and followed by a period.  The text of the theorem continues on the same line in normal, 10-pt. font, achieved in LaTeX using \verb|\footnotesize|.  For example, 
+\subsection{Animal Preparation}
+Mice ($n = 4$, C57BL/6J, male, 4-6 months, Charles River) were anesthetized with medical O2 vaporized isoflurane (3\% for induction, 1-2\% for maintenance, 0.5 L/min) via nose-cone inhalation. Body temperature was maintained at 37 $^\circ$C with a feedback heating pad (DC Temperature Controller, Future Health Concepts). Arterial oxygen saturation, heart rate, and breathing rate were monitored via pulse oximetry (MouseSTAT, Kent Scientific). Mice were placed supine in a stereotaxic frame (Kent Scientific) and subcutaneously administered carprofen (5 mg/kg) and dexamethasone (2 mg/kg) to reduce inflammation during the craniotomy procedure. The scalp was shaved and resected to expose the skull between the bregma and lambda cranial coordinates. A 3 mm diameter portion of the skull over the somatosensory cortex was removed with a dental drill (Ideal Microdrill, 0.8 mm burr, Fine Science Tools) while under regular artificial cerebrospinal fluid (buffered pH 7.4) perfusion. A 3 mm round cover glass (\#1, World Precision Instruments) was placed over the exposed brain with artificial cerebrospinal fluid filling the void. Gentle pressure was applied to the cover glass while Kwik-sil adhesive (World Precision Instruments) was deposited to bond the glass to the skull. A layer of C\&B-Metabond (Parkell Inc.) was applied over the Kwik-sil to create a sterile, air-tight seal around the craniotomy and to allow for the restoration of intracranial pressure. A second layer of C\&B-Metabond was used to cement a custom titanium head-plate centered around the cranial window for head-constrained awake measurements. The subjects were allowed to recover from surgery and monitored for cranial window integrity and normal behavior for at least four weeks prior to imaging. They were then exposed to head fixation during 20-30 minute sessions over 3-5 days until habituated to locomotion on a linear, belt-driven treadmill awake imaging system \cite{He:2020}.
 
-\vspace{2ex}\noindent{\footnotesize\textbf{Theorem 1.} For any unbiased estimator...}
+Mice were housed 1-4 per cage in a conventional vivarium maintained at 20 $^\circ$C on 12-hour light-to-dark cycles (07:00 to 19:00). All subjects received standard cage supplements (e.g. cage enclosures, nesting material, and wooden toys) with water and food \textit{ad libitum}. All animal protocols were designed in accordance with the National Institutes of Health Guide for the Care and Use of Laboratory Animals and were approved by the Institutional Animal Care and Use Committee at The University of Texas at Austin (AUP-2018-00021).
 
-% \disclosures 
+% ----------------------------------------------------------------------------------------
+
+\subsection{Awake-to-Anesthetized Blood Flow Measurements}
+
+Cranial window implanted mice ($n = 3$) were head constrained on the awake imaging system and allowed to acclimate for 5-10 minutes. The awake hemodynamic baseline was then defined by acquiring 50 MESI frames, averaging the speckle contrast across each exposure time, and computing the corresponding $ICT$ frame using Eq.~(\ref{eq:mesi}). A custom 3D-printed inhalation nose-cone connected to the anesthesia vaporizer and scavenger was then placed several millimeters away from the subject and used to administer medical air (0.5 L/min) with no isoflurane (0\%). Continuous MESI was initiated ($t = 0$) and used to monitor the awake subject for 10 minutes before increasing isoflurane to 2\% to induce anesthesia. After one minute of exposure ($t = 11$ min), the nose-cone was fully positioned over the subject to ensure proper function. After two minutes of exposure ($t = 12$ min), a feedback heating pad (55-7030, Harvard Apparatus) was placed beneath the subject to maintain a 37 $^\circ$C body temperature. The now anesthetized subject was continuously monitored with MESI until $t = 30$ min, at which point the anesthetized hemodynamic state was defined by acquiring and averaging an additional 50 MESI frames. The subject was then removed from the imaging system and allowed to recover from anesthesia on a heating pad before being transferred back into its cage. Each subject underwent three imaging sessions with at least one full day of recovery between each session.
+
+An additional subject ($n = 1$) underwent an extended routine where the awake and anesthetized states were each imaged for one hour in order to capture the longer-term hemodynamics. Because of the volume of data being recorded, the acquisition was briefly paused prior to the induction of anesthesia to offload data from the solid-state drive used for writing data, which resulted in a short period of missing imagery. The four repeated imaging sessions for this subject were spaced at least one week apart to avoid any complications from extended anesthesia exposure.
+
+
+% ----------------------------------------------------------------------------------------
+% BEGIN RESULTS SECTION
+% ----------------------------------------------------------------------------------------
+\section{Results}
+\label{sect:results}
+
+The systematic changes caused by general anesthesia are shown in Fig.~\ref{fig:system_image}b and Video 1. The visible decrease in speckle contrast and corresponding increase in MESI $ICT$ are representative of an increase in cerebral blood flow caused by the vasodilatory effects of isoflurane \cite{Masamoto:2012bj}. Dilation can be seen across much of the surface vasculature, in particular the large central vein and numerous smaller vessels that have become more prominent in the anesthetized imagery as blood flow increased. These large alterations to the vasculature precluded the generation of full-field relative flow change maps.
+
+% Figure 1 - System Schematic + Awake vs. Anesthetized Imagery
+\begin{figure}
+    \begin{center}
+        \begin{tabular}{c}
+            \includegraphics[width=6.25in]{Figure1.pdf}
+        \end{tabular}
+    \end{center}
+    \caption {
+        \label{fig:system_image}
+        (a) MESI system schematic with 2x magnification. L1 (f = 50 mm, Steinheil Triplet Achromatic, 67-422, Edmund Optics), F (685$\pm$20 nm bandpass filter, S685/40m, Chroma Technology), and L2 (f = 100 mm, Achromatic Doublet, AC254-100-A, Thorlabs). (b) Single exposure (5 ms) LSCI and MESI inverse correlation time during awake and anesthetized states in the same subject (Scale bar = 1 mm) (Video 1, MPEG4, 35.8 MB).
+    }
+\end{figure}
+
+The temporal dynamics of the awake-to-anesthetized transition can be seen in Fig.~\ref{fig:acute}, where the change in blood flow within two veins and one parenchyma region were analyzed during the extended two-hour imaging session. The open source image registration toolbox Elastix \cite{Klein:2010gr} was used to rigidly align all speckle contrast frames to the awake baseline imagery in order to account for motion-related displacements. A central moving average filter ($k = 5$) was also applied to smooth the fitted data for presentation. The change in diameter of the two vessels (R1 and R2) was estimated using the full-width at half-maximum (FWHM) of a Gaussian fit to the vascular cross-sections extracted from the 5 ms exposure speckle contrast frames (Fig.~\ref{fig:acute}b). The width of the two vessels remained steady throughout the awake measurements but increased while under anesthesia, with the larger vessel (R1) growing by over 50\%. This vasodilation was also accompanied by an increase in blood flow as measured by the relative changes in vascular flux and parenchymal tissue perfusion (Fig.~\ref{fig:acute}c). The vascular flux in R1 and R2 increased by 267\% and 175\%, respectively, while the tissue perfusion in R3 grew by 161\%. Repeated measurements in the subject (Fig.~\ref{fig:acute}d-f) exhibit the stability of day-to-day MESI estimates of blood flow as well as the consistency of the hemodynamic response to anesthesia.
+
+% Figure 2 - Extended Awake to Anesthetized Measurements
+\begin{figure}
+    \begin{center}
+        \begin{tabular}{c}
+            \includegraphics[width=6.25in]{Figure2.pdf}
+        \end{tabular}
+    \end{center}
+    \caption {
+        \label{fig:acute}
+        (a) Awake speckle contrast image overlaid with vascular (R1 and R2) and parenchyma (R3) regions used during flow analysis. Dashed lines indicate the cross-sectional profiles used to calculate vessel width (Scale bar = 1 mm). Timecourses of (b) vessel caliber and (c) relative change in blood flow within the regions over an extended two-hour imaging session. The vertical dashed line indicates the beginning of anesthesia induction. The relative vascular flux and tissue perfusion in (c) were computed using the average of the entire awake state for the baseline. Repeated measurements of (d) vessel caliber, (e) vascular flux, and (f) parenchyma tissue perfusion during awake and anesthetized states in the same animal over four days (mean $\pm$ sd).
+    }
+\end{figure}
+
+The repeatability of these measurements are further demonstrated across three additional subjects as shown in Fig.~\ref{fig:summary}. Two vascular regions (R1 and R2) and two parenchyma regions (R3 and R4) were examined in each animal during the awake and anesthetized states over three separate imaging sessions lasting 30 minutes each. Similar to the results seen in Fig.~\ref{fig:acute}, the vasodilatory effects of isoflurane anesthesia induced large changes in the hemodynamics. On average, vessel width increased by 10-20\% and vascular flux increased by over 80\%, with the exception of R2 from Subject 1, which only experienced minimal vasodilation (+1\%) and therefore a smaller increase in vascular flux (+60\%). The perfusion of parenchymal regions increased on average by at least 50\% across all subjects.
+
+% Figure 3 - Awake to Anesthetized Results Summary
+\begin{figure}
+    \begin{center}
+        \begin{tabular}{c}
+            \includegraphics[width=6.25in]{Figure3.pdf}
+        \end{tabular}
+    \end{center}
+    \caption {
+        \label{fig:summary}
+        Speckle contrast images from three awake subjects overlaid with vascular (R1 and R2) and parenchyma (R3 and R4) regions used during flow analysis. Dashed lines indicate the cross-sectional profiles used to calculate vessel width (Scale bar = 1 mm). Each row of charts depicts average vessel caliber, vascular flux, and parenchymal tissue perfusion during awake and anesthetized states across three different imaging sessions for each animal (mean $\pm$ sd).
+    }
+\end{figure}
+
+
+% ----------------------------------------------------------------------------------------
+% BEGIN DISCUSSION SECTION
+% ----------------------------------------------------------------------------------------
+\section{Discussion}
+\label{sect:discussion}
+
+The systemic effects of isoflurane undermine the reliability of neurophysiological and behavioral studies because anesthesia is a fundamentally unnatural physiological state \cite{Gao:2017tw}. Imaging blood flow on the cortical surface with MESI during the induction of anesthesia directly visualizes and quantifies these large hemodynamic changes. On average, the vasodilation caused by isoflurane increased vessel diameter by 18 $\pm$ 13\% across all trials with large vessel-to-vessel variation but small day-to-day variation (Fig.~\ref{fig:summary}). Direct microscope measurements in fentanyl- and nitrous oxide-anesthetized rats documented a 17\% increase in arteriolar diameter and 6\% increase in venule diameter after the topical application of isoflurane \cite{Koenig:1994rn}. Similar measurements in pentobarbital-anesthetized dogs observed 10-28\% increases in the diameter of small arterioles following the inhalation of isoflurane \cite{Iida:1998th}. Both studies found that isoflurane dilated arterioles in a concentration-dependent manner.
+
+Much larger changes in blood flow were measured in the surface vessels, with vascular flux increasing on average by 135 $\pm$ 64\% across all trials. Even vessels that experienced only minimal vasodilation, such as R2 for Subject 1 in Fig.~\ref{fig:summary}, exhibited an over 60\% increase in flow. Because few imaging modalities are capable of measuring the dynamics of blood flow with sufficient spatial resolution to distinguish individual vessels, there has been limited work on this topic in awake animals. A lone study using LDF found only non-significant 18\% increases in both CBF and red blood cell (RBC) velocity in the barrel cortex after mice were anesthetized with isoflurane \cite{Takuwa:2012ee}. However, because large blood vessels were avoided, the LDF likely sampled smaller subsurface vasculature that may exhibit different responses to isoflurane than the larger surface vasculature imaged by MESI. The vascular flux metric calculated from the speckle correlation time is also not analogous to either the CBF or RBC velocity measured by LDF, so direct comparisons may not technically be possible \cite{Kazmi:2015du}.
+
+Within the parenchyma, perfusion increased on average by 92 $\pm$ 35\% across all trials after only 20 minutes of isoflurane exposure. The reduced variability compared to the vascular measurements is likely a byproduct of the more homogenous structure of the unresolvable capillaries within the parenchyma. fMRI measurements in isoflurane-anesthetized rats have reported $\sim$50\% increases in global CBF with the cerebral cortex experiencing the smallest regional increase (20\%) compared to the awake state \cite{Sicard:2003dj}. However, these numbers are not directly comparable because fMRI samples a much larger volume of the brain than MESI, which has both a smaller field of view and only penetrates several hundred microns into the cortex.
+
+While LSCI has been utilized extensively with awake imaging \cite{Takuwa:2011jr,Seto:2014ga,Lu:2017bo,Balbi:2017cj, Sunil:2020ac}, this is one of the first uses of MESI in an awake animal model \cite{He:2020}. Traditional single-exposure LSCI would likely have underestimated the magnitude of the flow changes caused by isoflurane because individual exposure times are only sensitive to a range of flow rates \cite{Parthasarathy:2008el}. Failing to account for the increase in multiple dynamic scattering events caused by vasodilation would also have resulted in an underestimation of the flow changes in the visible surface vasculature. Using the raw $ICT$ value instead of the diameter-scaled vascular flux metric in Fig.~\ref{fig:acute}c would have measured only a 140\% increase in the large vessel instead of 267\%. The repeatability of the day-to-day measurements further demonstrate the robustness of MESI as a chronic blood flow imaging technique \cite{Kazmi:2013hp}, even when observing a fully-conscious, moving animal.
+
+The effects of isoflurane fundamentally undermine the imaging of cortical hemodynamics in the normal physiological state. Blood flow imaging techniques such as LSCI, LDF, and fMRI require greater sensitivity because of the suppression of the hemodynamic response \cite{Takuwa:2012ee} and measure a delayed neurovascular coupling \cite{Pisauro:2013cx}. Anatomical imaging with two-photon microscopy only captures heavily-dilated vasculature unrepresentative of the awake resting state \cite{Lyons:2016bd}. The consistency and reliability of all imaging techniques can suffer from the effects of prolonged isoflurane exposure, which can cause continual vasodilation as seen in Fig.~\ref{fig:acute}b. This may result in extended imaging sessions documenting disparate anatomies and physiologies between the beginning and conclusion of an experiment.
+
+% ----------------------------------------------------------------------------------------
+
+\subsection{Limitations}
+
+The impact of repeated exposure to isoflurane was not examined in this study. Previous work has found that it can impair synaptic plasticity in the basolateral amygdala \cite{Long:2016ri} and cause persistent motor deficits via structural changes to the corpus callosum \cite{Bajwa:2018ri}. The one day interval between imaging sessions may not have been sufficient to avoid these effects despite only 20 minutes of isoflurane exposure. Because the experiment imaged the induction of general anesthesia from the awake state, tracheal intubation for mechanical ventilation was not an option. This may result in breathing variability that impacts the systemic hemodynamics and complicates comparisons with other studies that had mechanical control of ventilation. Since varying the isoflurane dosage was the only method of regulating breathing stability, the concentration dependent effects of isoflurane may have also influenced the results \cite{Masamoto:2009dd,Li:2014eh}.
+
+While image registration can help maintain the spatial alignment of data across an experiment, it is unable to decouple the effects of animal motion from the underlying blood flow. Even with the head fully restrained, walking and grooming both cause subtle brain movements that manifest as large changes in speckle contrast, as seen by the abrupt spikes during the awake section of Fig.~\ref{fig:acute}c. While these fluctuations may characterize real hemodynamic responses, it is difficult to isolate them from systemic animal motion. A simple solution might be the addition of an external sensor to the treadmill \cite{Dombeck:2007gr} to exclude timepoints when the animal is actively moving. However, a more refined awake imaging system that minimizes brain movement would likely be necessary to directly probe these phenomena with LSCI or other dynamic light scattering imaging techniques.
+
+
+% ----------------------------------------------------------------------------------------
+% BEGIN CONCLUSION SECTION
+% ----------------------------------------------------------------------------------------
+\section{Conclusion}
+\label{sect:conclusion}
+
+We have used MESI to image CBF during the induction of general anesthesia with isoflurane in head-restrained mice. The vasodilatory effects of isoflurane caused large anatomical and physiological changes that were drastically different from the awake state. These increases in vessel size and blood flow were repeatable across multiple imaging sessions in the same subjects. This study also demonstrated that the MESI technique can be readily used for chronic awake imaging and allows for direct day-to-day and animal-to-animal comparisons of blood flow. These results provide further evidence that the anesthetized state is unrepresentative of normal physiology and that neurophysiological and behavioral experiments would benefit immensely from transitioning to un-anesthetized awake animal models.
+
+
+% ----------------------------------------------------------------------------------------
+% BEGIN DISCLOSURES AND ACKNOWLEDGEMENTS
+% ----------------------------------------------------------------------------------------
 \subsection*{Disclosures}
-Conflicts of interest should be declared under a separate header. If the authors have no relevant financial interests in the manuscript and no other potential conflicts of interest to disclose, a statement to this effect should also be included in the manuscript.
+A.K.D. holds equity in Dynamic Light, Inc. The authors declare no other conflicts of interest.
 
-\acknowledgments 
-This unnumbered section is used to identify those who have aided the authors in understanding or accomplishing the work presented and to acknowledge sources of funding.  
+\subsection*{Author Contributions}
+C.T.S. constructed the imaging system, conceived the experiments, acquired the data, analyzed the results, and wrote the manuscript. F.H. performed the animal surgeries. C.X., L.L., and A.K.D. supervised the project. All authors contributed to the manuscript revisions.
 
-%%%%% References %%%%%
+\acknowledgments
+This study was supported by the National Institutes of Health...
 
-\bibliography{report}   % bibliography data in report.bib
-\bibliographystyle{spiejour}   % makes bibtex use spiejour.bst
 
-%%%%% Biographies of authors %%%%%
+% ----------------------------------------------------------------------------------------
+% BEGIN BIBLIOGRAPHY
+% ----------------------------------------------------------------------------------------
+\bibliography{bibliography.bib}
+\bibliographystyle{spiejour} % SPIE bibliography style
 
-\vspace{2ex}\noindent\textbf{First Author} is an assistant professor at the University of Optical Engineering. He received his BS and MS degrees in physics from the University of Optics in 1985 and 1987, respectively, and his PhD degree in optics from the Institute of Technology in 1991.  He is the author of more than 50 journal papers and has written three book chapters. His current research interests include optical interconnects, holography, and optoelectronic systems. He is a member of SPIE.
 
+% ----------------------------------------------------------------------------------------
+% AUTHOR BIOGRAPHIES
+% ----------------------------------------------------------------------------------------
 \vspace{1ex}
-\noindent Biographies and photographs of the other authors are not available.
+\vspace{2ex}\noindent\textbf{Colin T. Sullender} received his PhD in biomedical engineering from the University of Texas at Austin in 2018. Currently, he is a postdoctoral research fellow working with Dr. Andrew Dunn in the Functional Optical Imaging Laboratory (FOIL) at the University of Texas. His research focuses on the continued development and clinical translation of the laser speckle contrast imaging technique.
 
+\vspace{2ex}\noindent\textbf{Fei He} received his PhD in optical engineering from the Chinese Academy of Sciences. Currently, he is a postdoctoral research fellow working with Dr. Lan Luan in the Luan Laboratory of Integrative Neural Interface at Rice University.
+
+\vspace{2ex}\noindent\textbf{Chong Xie} is an Associate Professor in the Department of Electrical and Computer Engineering at Rice University and a member of the Rice Neuroengineering Initiative. His research focuses on the development of advanced nanoelectronic devices for probing and manipulating neural systems.
+
+\vspace{2ex}\noindent\textbf{Lan Luan} is an Assistant Professor in the Department of Electrical and Computer Engineering at Rice University and a member of the Rice Neuroengineering Initiative. Her research focuses on the development of multimodal neural interfaces that combine electrical, optical, and other technologies to monitor and manipulate brain activity.
+
+\vspace{2ex}\noindent\textbf{Andrew K. Dunn} is the Donald J. Douglass Centennial Professor of Engineering in the Department of Biomedical Engineering at the University of Texas at Austin and the Director of the Center for Emerging Imaging Technologies. His research focuses on the development of innovative optical imaging techniques for studying the brain.
+
+
+% ----------------------------------------------------------------------------------------
+% FIGURE AND TABLE LISTS
+% ----------------------------------------------------------------------------------------
 \listoffigures
-\listoftables
 
 \end{spacing}
 \end{document}
+
+% ----------------------------------------------------------------------------------------
+% END
+% ----------------------------------------------------------------------------------------
