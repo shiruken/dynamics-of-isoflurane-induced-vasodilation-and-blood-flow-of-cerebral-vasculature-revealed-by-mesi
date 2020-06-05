@@ -1,16 +1,16 @@
-name: Build LaTeX document
+name: Compile LaTeX document
 on: [push]
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
+      - name: Check out current git repository
         uses: actions/checkout@v2
-      - name: Github Action for LaTeX
+      - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
           root_file: article.tex
-      - name: Upload-Artifact v2
+      - name: Upload compiled document as artifact
         uses: actions/upload-artifact@v2
         with:
           name: article.pdf
