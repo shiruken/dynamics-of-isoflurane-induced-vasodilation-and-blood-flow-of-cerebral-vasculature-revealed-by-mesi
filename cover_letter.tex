@@ -1,39 +1,22 @@
-\documentclass[12pt,stdletter,orderfromtodate,dateleft,sigleft]{newlfm}
+\documentclass[12pt]{letter}
+\usepackage[a4paper]{geometry}
 \usepackage[hidelinks]{hyperref}
 
-\topmarginsize{0in}
-\topmarginskip{0in}
-\headermarginsize{0in}
-\headermarginskip{0in}
-
-\leftmarginsize{1in}
-\rightmarginsize{1in}
-
-\newlfmP{addrfromskipbefore=0pt}
-\newlfmP{addrfromskipafter=0pt}
-
-\newlfmP{sigskipbefore=10pt}
-\newlfmP{sigsize=40pt}
-
-\newlfmP{Headlinewd=0pt,Footlinewd=0pt}
-
-\namefrom{Colin Sullender, Ph.D.}
-\addrfrom{%
+\name{Colin Sullender}
+\address{
     Colin Sullender\\
     The University of Texas at Austin\\
     Department of Biomedical Engineering\\
     107 W. Dean Keeton Street, Stop C0800\\
     Austin, TX, 78712, USA
 }
-
-\dateset{\today}
-
-\greetto{Dear Dr. Boas,}
-
-\closeline{Sincerely,}
+\signature{\vspace{50pt} Colin Sullender, Ph.D.}
+\longindentation=0pt
 
 \begin{document}
-\begin{newlfm}
+\begin{letter}{}
+
+\opening{Dear Dr. Boas,}
 
 We wish to submit a new manuscript entitled ''Visualizing anesthesia-induced vasodilation of cerebral vasculature using multi-exposure speckle imaging'' for consideration by \emph{Neurophotonics}. We confirm that this work is original and has not been published elsewhere nor is it currently under consideration in another journal.
 
@@ -45,5 +28,7 @@ Please address all correspondence to Dr. Andrew Dunn at \href{mailto:adunn@utexa
 
 Thank you for your consideration.
 
-\end{newlfm}
+\closing{Sincerely,}
+
+\end{letter}
 \end{document}

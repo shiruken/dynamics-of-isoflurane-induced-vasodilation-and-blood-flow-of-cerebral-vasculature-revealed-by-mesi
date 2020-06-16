@@ -1,4 +1,4 @@
-name: Compile LaTeX document
+name: Build LaTeX
 on: [push]
 jobs:
   build_latex:
@@ -6,12 +6,15 @@ jobs:
     steps:
       - name: Check out current git repository
         uses: actions/checkout@v2
-      - name: Compile LaTeX document
+      - name: Compile LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: article.tex
-      - name: Upload compiled document as artifact
+          root_file: |
+            article.tex
+            cover_letter.tex
+      - name: Upload compiled documents as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: article.pdf
-          path: article.pdf
+          path: |
+            article.pdf
+            cover_letter.pdf
