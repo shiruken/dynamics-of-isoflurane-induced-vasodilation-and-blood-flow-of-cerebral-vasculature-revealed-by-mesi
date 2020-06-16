@@ -12,9 +12,13 @@ jobs:
           root_file: |
             article.tex
             cover_letter.tex
-      - name: Upload compiled documents as artifact
+      - name: Upload compiled article
         uses: actions/upload-artifact@v2
         with:
-          path: |
-            article.pdf
-            cover_letter.pdf
+          name: article.pdf
+          path: article.pdf
+      - name: Upload compiled cover letter
+        uses: actions/upload-artifact@v2
+        with:
+          name: cover_letter.pdf
+          path: cover_letter.pdf
