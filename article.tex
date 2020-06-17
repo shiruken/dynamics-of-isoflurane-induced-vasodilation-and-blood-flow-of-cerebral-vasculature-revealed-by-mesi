@@ -43,10 +43,10 @@ Anesthetized animal models are used extensively during neurophysiological and be
 \end{abstract}
 
 % Include a list of up to six keywords after the abstract
-\keywords{multi-exposure speckle imaging, laser speckle contrast imaging, awake imaging, anesthesia}
+\keywords{multi-exposure speckle imaging, laser speckle contrast imaging, awake imaging, anesthesia, isoflurane, cerebral blood flow}
 
 % Include email contact information for corresponding author
-{\noindent \footnotesize\textbf{*}Andrew K. Dunn,  \linkable{adunn@utexas.edu} }
+{\noindent \footnotesize\textbf{*}Andrew K. Dunn, \linkable{adunn@utexas.edu}}
 
 \begin{spacing}{2}   % use double spacing for rest of manuscript
 
@@ -71,9 +71,9 @@ In this paper, we present multi-exposure speckle imaging (MESI) of cerebral bloo
 \label{sect:methods}
 
 \subsection{Multi-Exposure Speckle Imaging (MESI)}
-A schematic of the imaging system is presented in Fig.~\ref{fig:system_image}a. MESI was performed using a 685 nm laser diode (50 mW, HL6750MG, Thorlabs, Inc.) intensity modulated with an acousto-optic modulator (AOM, 3100-125, Gooch \& Housego, Ltd.) and relayed to illuminate the craniotomy at an oblique angle. The scattered light was imaged by a CMOS camera (acA1920-155um, Basler AG) synchronized with the modulated laser pulses with 2x magnification and cropped to a field-of-view of 3.6 x 3.0 mm. Fifteen camera exposures ranging between 50 $\mu$s and 80 ms \cite{Parthasarathy:2008el,Atchia:2013ep,Kazmi:2013hp} were recorded for each complete MESI frame in order to broadly sample the speckle dynamics of the specimen \cite{Kazmi:2014go}, resulting in an effective acquisition rate of $\sim$2.5 MESI frames-per-second. The total amount of light used to capture each exposure was held constant with the AOM in order to minimize the effects of shot noise \cite{Parthasarathy:2008el}. The acquisition was controlled using custom software written in C++ along with a multifunction I/O device (USB-6363, National Instruments Corp.) for the generation of camera exposure trigger signals and AOM modulation voltages \cite{Sullender:2018ff}.
+A schematic of the imaging system is presented in Fig.~\ref{fig:system_image}a. MESI was performed using a 685 nm laser diode (50 mW, HL6750MG, Thorlabs, Inc.) intensity modulated with an acousto-optic modulator (AOM, 3100-125, Gooch \& Housego, Ltd.) and relayed to illuminate the craniotomy at an oblique angle. The scattered light was imaged by a CMOS camera (acA1920-155um, Basler AG) synchronized with the modulated laser pulses with $2\times$ magnification and cropped to a field-of-view of 3.6 $\times$ 3.0 mm. Fifteen camera exposures ranging between 50 $\mu$s and 80 ms \cite{Parthasarathy:2008el,Atchia:2013ep,Kazmi:2013hp} were recorded for each complete MESI frame in order to broadly sample the speckle dynamics of the specimen \cite{Kazmi:2014go}, resulting in an effective acquisition rate of $\sim$2.5 MESI frames-per-second. The total amount of light used to capture each exposure was held constant with the AOM in order to minimize the effects of shot noise \cite{Parthasarathy:2008el}. The acquisition was controlled using custom software written in C++ along with a multifunction I/O device (USB-6363, National Instruments Corp.) for the generation of camera exposure trigger signals and AOM modulation voltages \cite{Sullender:2018ff}.
 
-The 15 raw intensity images were converted to speckle contrast images ($K = \sigma_{s} / {\langle{I}\rangle}$) with a $7\times7$-pixel sliding window and used to calculate an estimate of the speckle correlation time ($\tau_c$) at each pixel with the multi-exposure speckle visibility expression \cite{Parthasarathy:2008el}:
+The 15 raw intensity images were converted to speckle contrast images ($K = \sigma_{s} / {\langle{I}\rangle}$) with a 7$\times$7-pixel sliding window and used to calculate an estimate of the speckle correlation time ($\tau_c$) at each pixel with the multi-exposure speckle visibility expression \cite{Parthasarathy:2008el}:
 %
 % Equation 1 - MESI Equation
 \begin{equation}
