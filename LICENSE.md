@@ -1,6 +1,6 @@
 # Creative Commons Attribution 3.0 Unported (CC BY 3.0)
 
-_Copyright (c) 2018 Colin T. Sullender, Lisa M. Richards, Fei He, Lan Luan, and Andrew K. Dunn_
+_Copyright (c) 2020 Colin T. Sullender, Lisa M. Richards, Fei He, Lan Luan, and Andrew K. Dunn_
 
 ---
 
