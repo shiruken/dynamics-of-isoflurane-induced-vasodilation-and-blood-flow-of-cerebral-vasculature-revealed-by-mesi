@@ -8,6 +8,7 @@
 
 ## Revision History
 
+* 2020-06-30: Resubmitted to _Neurophotonics_ after revising to structured abstract format ([Manuscript v1.1](https://github.com/shiruken/visualizing-anesthesia-induced-vasodilation-of-cerebral-vasculature-using-mesi/releases/tag/v1.1))
 * 2020-06-26: Uploaded to bioRxiv ([bioRxiv v1.0](https://github.com/shiruken/visualizing-anesthesia-induced-vasodilation-of-cerebral-vasculature-using-mesi/releases/tag/v1.0-bioRxiv))
 * 2020-06-26: Submitted to _Neurophotonics_ ([Manuscript v1.0](https://github.com/shiruken/visualizing-anesthesia-induced-vasodilation-of-cerebral-vasculature-using-mesi/releases/tag/v1.0))
 
