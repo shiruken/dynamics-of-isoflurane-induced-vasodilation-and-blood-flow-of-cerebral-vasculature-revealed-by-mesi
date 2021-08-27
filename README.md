@@ -1,3 +1,18 @@
-![Build LaTeX](https://github.com/shiruken/visualizing-anesthesia-induced-vasodilation-of-cerebral-vasculature-using-mesi/workflows/Build%20LaTeX/badge.svg?branch=master) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+![Build LaTeX](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/workflows/Build%20LaTeX/badge.svg?branch=master) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-# Visualizing anesthesia-induced vasodilation of cerebral vasculature using multi-exposure speckle imaging
+# Dynamics of isoflurane-induced vasodilation and blood flow of cerebral vasculature revealed by multi-exposure speckle imaging
+
+[LaTeX](https://www.latex-project.org/) source code for my paper submitted to the [SPIE](https://spie.org/) journal [_Neurophotonics_](https://www.spiedigitallibrary.org/journals/neurophotonics) comparing awake and anesthetized cerebral blood flow measurements with multi-exposure speckle imaging (MESI). This work was conducted during my postdoc at the University of Texas at Austin in the [Functional Optical Imaging Laboratory](https://foil.bme.utexas.edu/) ([@UTFOIL](https://github.com/utfoil)).
+
+A preprint of this manuscript is available on bioRxiv: https://doi.org/10.1101/2020.06.26.174227
+
+> Colin T. Sullender, Lisa M. Richards, Fei He, Lan Luan, Andrew K. Dunn, "Visualizing anesthesia-induced vasodilation of cerebral vasculature using multi-exposure speckle imaging," Neurophotonics (_Manuscript Under Review_).
+
+## Revision History
+
+* 2020-08-30: Rejected from _Neurophotonics_
+* 2020-06-30: Resubmitted to _Neurophotonics_ after revising to structured abstract format ([Manuscript v1.1](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v1.1))
+* 2020-06-26: Uploaded to bioRxiv ([bioRxiv v1.0](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v1.0-bioRxiv)): https://doi.org/10.1101/2020.06.26.174227
+* 2020-06-26: Submitted to _Neurophotonics_ ([Manuscript v1.0](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v1.0))
+
+_© 2020 Colin T. Sullender, Lisa M. Richards, Fei He, Lan Luan, and Andrew K. Dunn_
