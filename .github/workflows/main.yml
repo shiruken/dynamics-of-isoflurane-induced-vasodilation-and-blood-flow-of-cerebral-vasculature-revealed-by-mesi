@@ -9,16 +9,9 @@ jobs:
       - name: Compile LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: |
-            article.tex
-            cover_letter.tex
+          root_file: article.tex
       - name: Upload compiled article
         uses: actions/upload-artifact@v2
         with:
           name: article.pdf
           path: article.pdf
-      - name: Upload compiled cover letter
-        uses: actions/upload-artifact@v2
-        with:
-          name: cover_letter.pdf
-          path: cover_letter.pdf
