@@ -1,4 +1,4 @@
-![Build LaTeX](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/workflows/Build%20LaTeX/badge.svg?branch=master) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Build LaTeX](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/actions/workflows/main.yml) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 # Dynamics of isoflurane-induced vasodilation and blood flow of cerebral vasculature revealed by multi-exposure speckle imaging
 
