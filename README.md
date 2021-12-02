@@ -10,11 +10,12 @@ A preprint of this manuscript is available on bioRxiv: https://doi.org/10.1101/2
 
 ## Revision History
 
+* 2021-11-08: Revisions submitted to _Journal of Neuroscience Methods_ ([Manuscript v3.0](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v3.0))
 * 2021-08-31: Updated bioRxiv submission ([bioRxiv v2.0](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v1.0-bioRxiv)): https://doi.org/10.1101/2020.06.26.174227
-* 2021-08-30: Submitted to the _Journal of Neuroscience Methods_ ([Manuscript v2.0](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v2.0))
+* 2021-08-30: Submitted to _Journal of Neuroscience Methods_ ([Manuscript v2.0](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v2.0))
 * 2020-08-30: Rejected from _Neurophotonics_ 😭
 * 2020-06-30: Resubmitted to _Neurophotonics_ after revising to structured abstract format ([Manuscript v1.1](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v1.1))
 * 2020-06-26: Uploaded to bioRxiv ([bioRxiv v1.0](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v1.0-bioRxiv)): https://doi.org/10.1101/2020.06.26.174227
 * 2020-06-26: Submitted to _Neurophotonics_ ([Manuscript v1.0](https://github.com/shiruken/dynamics-of-isoflurane-induced-vasodilation-and-blood-flow-of-cerebral-vasculature-revealed-by-mesi/releases/tag/v1.0))
 
-_© 2020 Colin T. Sullender, Lisa M. Richards, Fei He, Lan Luan, and Andrew K. Dunn_
+_© 2021 Colin T. Sullender, Lisa M. Richards, Fei He, Lan Luan, and Andrew K. Dunn_
